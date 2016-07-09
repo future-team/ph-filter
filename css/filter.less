@@ -12,6 +12,7 @@
 @filter-active-item-color: #ee5511;
 
 .filter-container{
+  position: relative;
   .cat{
     padding: 0px;
     background: #ffffff;
@@ -81,7 +82,10 @@
         height: inherit;
         max-height: 315px;
         background: #ffffff;
-        .item{
+        &.sub {
+          position: relative;
+        }
+          .item{
           border-bottom: 1px solid #eeeeff;
           &:last-child{
             border-bottom: none;

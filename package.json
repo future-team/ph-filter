@@ -1,6 +1,6 @@
 {
   "name": "ph-filter",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "app filter plugin",
   "main": "lib/",
   "repository": "https://github.com/future-team/ph-filter.git",
