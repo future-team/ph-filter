@@ -1,5 +1,5 @@
 {
-  "name": "module-template",
+  "name": "ph-filter",
   "version": "0.1.0",
   "description": "app filter plugin",
   "main": "lib/",

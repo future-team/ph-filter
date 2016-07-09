@@ -1,6 +1,5 @@
 import React, { Component ,PropTypes} from 'react';
-import '../../css/filter.less';
-export default class Filter extends Component{
+export default class FilterContainer extends Component{
     initCat(){
         let catList=React.Children.map(this.props.children,function(panel,index){
             //如果panel设置了selected属性的话直接读取selected属性，

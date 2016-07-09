@@ -51,14 +51,12 @@ export default class FilterPanel extends PanelBase{
             subMenuList=this.renderSubMenuList(mainMenuList);
         return(
             this.props.show?(
-                <div>
-                    <div className="selector" >
-                        <div className="menu main" >
-                            {mainMenuList}
-                        </div>
-                        <div className='menu sub' >
-                            {subMenuList}
-                        </div>
+                <div className={(this.props.className?this.props.className+' ':'')+"selector"} >
+                    <div className="menu main" >
+                        {mainMenuList}
+                    </div>
+                    <div className='menu sub' >
+                        {subMenuList}
                     </div>
                 </div>
             ): null

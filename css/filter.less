@@ -8,13 +8,13 @@
 .rotate(@degrees){
   .transform(rotate(@degrees));
 }
-@assertive:                       #ee5511;
 
-@filter-active-item-color: @assertive;
+@filter-active-item-color: #ee5511;
 
 .filter-container{
   .cat{
     padding: 0px;
+    background: #ffffff;
     &::after{
       content: '';
       display: table;
@@ -73,6 +73,21 @@
       color: #323232;
       overflow: hidden;
       cursor: pointer;
+    }
+    &.simple-selector{
+      height: inherit;
+      overflow-y: visible;
+      .menu{
+        height: inherit;
+        max-height: 315px;
+        background: #ffffff;
+        .item{
+          border-bottom: 1px solid #eeeeff;
+          &:last-child{
+            border-bottom: none;
+          }
+        }
+      }
     }
   }
   .menu{

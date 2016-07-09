@@ -1,11 +1,6 @@
 import React, { Component ,PropTypes} from 'react';
-import Filter from '../../src/components/Filter.js';
 import {render} from 'react/lib/ReactDOM';
-import PanelSimple from '../../src/components/FilterPanelSimple.js';
-import Panel from '../../src/components/FilterPanel.js';
-import Item from '../../src/components/Item.js';
-import ItemGroup from '../../src/components/ItemGroup.js';
-
+import {FilterContainer,PanelSimple,Panel,Item,ItemGroup} from '../../src/index.js'
 export default class FilterDemo extends Component {
     constructor(props,context){
         super(props,context);
@@ -35,10 +30,10 @@ export default class FilterDemo extends Component {
     }
     render(){
         return(
-            <Filter onChange={function(key){
+            <FilterContainer onChange={function(key){
                 console.log(key);
             }}>
-                <PanelSimple selected={{key:'ljz',value:'陆家嘴'}}>
+                <PanelSimple className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
                     {this.state.panel1.map(function(item){return <Item key={item.key} itemKey={item.key}>{item.value}</Item>})}
                 </PanelSimple>
                 <Panel selected={{key:'s_flower',value:'花店'}}>
@@ -115,8 +110,15 @@ export default class FilterDemo extends Component {
                     <Item itemKey="bbb">八佰伴</Item>
                     <Item itemKey="pdxq">浦东新区</Item>
                     <Item itemKey="sndq">上南地区</Item>
+                    <Item itemKey="sndq">上南地区</Item>
+                    <Item itemKey="sndq">上南地区</Item>
+                    <Item itemKey="sndq">上南地区</Item>
+                    <Item itemKey="sndq">上南地区</Item>
+                    <Item itemKey="sndq">上南地区</Item>
+                    <Item itemKey="sndq">上南地区</Item>
+
                 </PanelSimple>
-            </Filter>
+            </FilterContainer>
         )
     }
 }
