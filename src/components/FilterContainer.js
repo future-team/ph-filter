@@ -49,15 +49,22 @@ export default class FilterContainer extends Component{
         let self=this,
             {catList,activeCat}=self.state;
         return React.Children.map(this.props.children,function(panel,index){
+            let show=(index==activeCat);
+            if(self.props.hideCat&&index==0){
+                show=true;
+            }
             return  React.cloneElement(panel,{
                 categoryChange:self.categoryChange.bind(self),
                 selected:catList[index],
                 panelIndex:index,
-                show:index==activeCat
+                show:show
             })
         });
     }
     renderCatList(){
+        if(this.props.hideCat){
+            return null;
+        }
         let self=this,
             {catList,activeCat}=self.state,
             width='100%';
@@ -90,3 +97,4 @@ export default class FilterContainer extends Component{
         </div>)
     }
 }
+//如果设置了hideCat并且只有一个panel，则该panel一直会显示

@@ -101,7 +101,7 @@ View [example](/example/src/index.js) to get more details
 
 #### `<FilterContainer>` Props:
 - onChange 用户切换分类的时候触发的回调函数，输入参数是分类的key .
-
+- hideCat 当设置hideCat属性的时候，cat那一栏会隐藏，第一个panel会一直显示（适用于只有一个panel并且不需要cat的场景）
 
 #### `<PanelSimple>`和 `<Panel>` Props:
 - default 当用户没有选择任何分类的时候，cat栏目里显示的默认文案 .
