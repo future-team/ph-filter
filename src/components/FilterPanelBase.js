@@ -16,7 +16,13 @@ export default class FilterPanelBase extends Component{
          * @property default
          * @type String
          * */
-        default:React.PropTypes.string
+        default:React.PropTypes.string,
+        /**
+         * panel是否为只读模式
+         * @property readOnly
+         * @type Boolean
+         * */
+        readOnly:React.PropTypes.bool
     };
     renderItemList(itemList){
         let self=this;
@@ -26,6 +32,7 @@ export default class FilterPanelBase extends Component{
             return (
                 React.cloneElement(item,{
                     active:selectedKey==key,
+                    readOnly:self.props.readOnly,
                     categoryChange:self.props.categoryChange,
                     panelIndex:self.props.panelIndex
                 })

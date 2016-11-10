@@ -105,6 +105,7 @@ View [example](/example/src/index.js) to get more details
 
 #### `<PanelSimple>`和 `<Panel>` Props:
 - default 当用户没有选择任何分类的时候，cat栏目里显示的默认文案 .
+- readOnly 是否为只读模式 .
 - selected 用户选择的分类对象，必须包含key和value属性{key:'s_flower',value:'花店'}，用于高亮panel里对应的项.
 
 #### `<Item>` Props:

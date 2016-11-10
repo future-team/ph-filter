@@ -44,6 +44,7 @@ export default class FilterPanel extends PanelBase{
                     React.cloneElement(menu,{
                         active:self.state.activeGroupIndex==index,
                         groupIndex:index,
+                        readOnly:self.props.readOnly,
                         mainKeyChange:self.mainKeyChange.bind(self)
                     })
                 );

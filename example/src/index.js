@@ -33,10 +33,10 @@ export default class FilterDemo extends Component {
             <FilterContainer onChange={function(key){
                 console.log(key);
             }}>
-                <PanelSimple className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
+                <PanelSimple readOnly className='panel1' selected={{key:'ljz',value:'陆家嘴'}}>
                     {this.state.panel1.map(function(item){return <Item key={item.key} itemKey={item.key}>{item.value}</Item>})}
                 </PanelSimple>
-                <Panel selected={{key:'s_flower',value:'花店'}}>
+                <Panel readOnly selected={{key:'s_flower',value:'花店'}}>
                     <ItemGroup label={<span style={{color:'red'}}>美食</span>}>
                         <Item itemKey='f_all'>
                             <span style={{color:'red'}}>全部美食</span>

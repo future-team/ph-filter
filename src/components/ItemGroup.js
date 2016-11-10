@@ -20,6 +20,9 @@ export default class Item extends Component{
         return (
             <div className={'item'+(this.props.active?' on':'')}
                 onClick={function(){
+                if(self.props.readOnly){
+                    return;
+                }
                 self.props.mainKeyChange(self.props.groupIndex)
                 }}>
                 {this.props.label}

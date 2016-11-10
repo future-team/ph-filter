@@ -16,6 +16,9 @@ export default class Item extends Component{
         }
     }
     clickCallback(){
+        if(this.props.readOnly){
+            return;
+        }
         this.props.categoryChange&&this.props.categoryChange(this.props.panelIndex,{
             key:this.props.itemKey,
             value:this.props.children
