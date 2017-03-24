@@ -1,94 +1,93 @@
 # ph-filter
 
-filter 使用方法
+Filter 使用方法
 ```jsx
-            <FilterContainer onChange={function(key){
-                console.log(key);
-            }}>
-                <Panel selected={{key:'s_flower',value:'花店'}}>
-                    <ItemGroup label={<span style={{color:'red'}}>美食</span>}>
-                        <Item itemKey='f_all'>
-                            <span style={{color:'red'}}>全部美食</span>
-                        </Item>
-                        <Item itemKey='f_bbc'>
-                            本帮江浙菜
-                        </Item>
-                        <Item itemKey='f_jp'>
-                            日本菜
-                        </Item>
-                        <Item itemKey='f_cf'>
-                            咖啡厅
-                        </Item>
-                        <Item itemKey='f_all1'>
-                            全部美食1
-                        </Item>
-                        <Item itemKey='f_bbc1'>
-                            本帮江浙菜1
-                        </Item>
-                        <Item itemKey='f_jp1'>
-                            日本菜1
-                        </Item>
-                        <Item itemKey='f_cf1'>
-                            咖啡厅1
-                        </Item>
-                        <Item itemKey='f_all2'>
-                            全部美食2
-                        </Item>
-                        <Item itemKey='f_bbc2'>
-                            本帮江浙菜2
-                        </Item>
-                        <Item itemKey='f_jp2'>
-                            日本菜2
-                        </Item>
-                        <Item itemKey='f_cf2'>
-                            咖啡厅2
-                        </Item>
-                    </ItemGroup>
-                    <ItemGroup  label='电影'>
-                        <Item itemKey='m_all'>
-                            全部电影
-                        </Item>
-                        <Item itemKey='m_p'>
-                            私人影院
-                        </Item>
-                        <Item itemKey='m_c'>
-                            电影院
-                        </Item>
-                    </ItemGroup>
-                    <ItemGroup label='购物'>
-                        <Item itemKey='s_all'>
-                            全部购物
-                        </Item>
-                        <Item itemKey='s_shoes'>
-                            服饰鞋包
-                        </Item>
-                        <Item itemKey='s_medicine'>
-                            药店
-                        </Item>
-                        <Item itemKey='s_glasses'>
-                            眼镜店
-                        </Item>
-                        <Item itemKey='s_flower'>
-                            花店
-                        </Item>
-                    </ItemGroup>
-                </Panel>
-                <PanelSimple default='筛选'>
-                    <Item itemKey="sjgy">世纪公园</Item>
-                    <Item itemKey="ljz">陆家嘴</Item>
-                    <Item itemKey="bbb">八佰伴</Item>
-                    <Item itemKey="pdxq">浦东新区</Item>
-                    <Item itemKey="sndq">上南地区</Item>
-                    <Item itemKey="sndq">上南地区</Item>
-                    <Item itemKey="sndq">上南地区</Item>
-                    <Item itemKey="sndq">上南地区</Item>
-                    <Item itemKey="sndq">上南地区</Item>
-                    <Item itemKey="sndq">上南地区</Item>
-                    <Item itemKey="sndq">上南地区</Item>
-
-                </PanelSimple>
-            </FilterContainer>
+    <FilterContainer onChange={function(key){console.log(key);}}>
+        <Panel selected={{key:'s_flower',value:'花店'}}>
+            <ItemGroup label={<span style={{color:'red'}}>美食</span>}>
+                <Item itemKey='f_all'>
+                    <span style={{color:'red'}}>全部美食</span>
+                </Item>
+                <Item itemKey='f_bbc'>
+                    本帮江浙菜
+                </Item>
+                <Item itemKey='f_jp'>
+                    日本菜
+                </Item>
+                <Item itemKey='f_cf'>
+                    咖啡厅
+                </Item>
+            </ItemGroup>
+            <ItemGroup  label='电影'>
+                <Item itemKey='m_all'>
+                    全部电影
+                </Item>
+                <Item itemKey='m_p'>
+                    私人影院
+                </Item>
+                <Item itemKey='m_c'>
+                    电影院
+                </Item>
+            </ItemGroup>
+            <ItemGroup label='购物'>
+                <Item itemKey='s_all'>
+                    全部购物
+                </Item>
+                <Item itemKey='s_shoes'>
+                    服饰鞋包
+                </Item>
+                <Item itemKey='s_medicine'>
+                    药店
+                </Item>
+                <Item itemKey='s_glasses'>
+                    眼镜店
+                </Item>
+                <Item itemKey='s_flower'>
+                    花店
+                </Item>
+            </ItemGroup>
+        </Panel>
+        <PanelSimple default='筛选'>
+            <Item itemKey="sjgy">世纪公园</Item>
+            <Item itemKey="ljz">陆家嘴</Item>
+            <Item itemKey="bbb">八佰伴</Item>
+            <Item itemKey="pdxq">浦东新区</Item>
+        </PanelSimple>
+    </FilterContainer>
 ```
+
+FilterCheckbox 拓展组件用法
+```jsx
+    ...
+    onSubmit(data){
+        console.log(data);
+    }
+    ...
+    const chooseData = "3244945,13893492,5687880,18418332,6210703,24890244"; // string
+    const filterData = shopList.msg.cityShopList;
+
+    return(
+        <FilterCheckbox choose={chooseData} groupIndex={0} buttonText='确定' buttonStyle="info" onSubmit={::this.onSubmit}>
+            {
+                filterData.map((cityShopList,index)=>{
+                    return (
+                        <ItemGroup key={cityShopList.cityId} mainKey={cityShopList.cityId} label={cityShopList.cityName}>
+                            {
+                                cityShopList.shopInfoDTOList.map((shopInfo)=>{
+                                    return (
+                                        <Item disabled={shopInfo.status==1} key={shopInfo.shopId} itemKey={shopInfo.shopId}>{shopInfo.shopName}</Item>
+                                    );
+                                })
+                            }
+                        </ItemGroup>
+                    );
+                })
+            }
+            
+        </FilterCheckbox>
+    )
+```
+
 ##  注意事项
 	
 - 	目前支持两种Panel，一级选择：PanelSimple  和  二级选择：Panel
@@ -127,5 +126,9 @@ View [example](/example/src/index.js) to get more details
 - Rnn build
 - `$ npm run build`
 - Commit and PR.
+
+## Repair
+
+`version 1.0.0` 新增FilterCheckbox拓展组件 <br/>
 
 

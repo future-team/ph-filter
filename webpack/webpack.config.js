@@ -8,6 +8,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports ={
     entry:[path.join(process.cwd(),'src/index.js')],
+    devtoll:'source-map',
     resolve:{
         modulesDirectories: [
             'node_modules',
@@ -16,6 +17,7 @@ module.exports ={
         ]
     },
     output:{
+        library: 'PhFilter',
         libraryTarget: 'umd',
         path:path.join(process.cwd(),'dist'),
         filename:config.name+'.js'
@@ -27,23 +29,23 @@ module.exports ={
             commonjs: 'react',
             amd: 'react'
         },
-        'eagle-ui': {
-            root: 'Eagleui',
-            commonjs2: 'eagle-ui',
-            commonjs: 'eagle-ui',
-            amd: 'eagle-ui'
-        },
         'react/lib/ReactDOM': {
             root: 'ReactDom',
             commonjs2: 'react/lib/ReactDOM',
             commonjs: 'react/lib/ReactDOM',
             amd: 'react/lib/ReactDOM'
         },
-        'eagle-ui/lib/utils/Component': {
+        'phoenix-ui': {
+            root: 'Phoenix',
+            commonjs2: 'phoenix-ui',
+            commonjs: 'phoenix-ui',
+            amd: 'phoenix-ui'
+        },
+        'phoenix-ui/lib/utils/Component': {
             root: 'Component',
-            commonjs2: 'eagle-ui/lib/utils/Component',
-            commonjs: 'eagle-ui/lib/utils/Component',
-            amd: 'eagle-ui/lib/utils/Component'
+            commonjs2: 'phoenix-ui/lib/utils/Component',
+            commonjs: 'phoenix-ui/lib/utils/Component',
+            amd: 'phoenix-ui/lib/utils/Component'
         }
     }],
     module:{
@@ -61,6 +63,10 @@ module.exports ={
             {
                 test: /\.(png|jpg)$/,
                 loader: 'url?limit=35000'
+            },
+            {
+                test:/\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+                loader: 'url-loader?name=./iconfont/[name].[ext]'
             }/*,
              {
              test: /\.less$/,

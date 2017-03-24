@@ -1,4 +1,5 @@
 import React, { Component ,PropTypes} from 'react';
+
 export default class FilterContainer extends Component{
     initCat(){
         let catList=React.Children.map(this.props.children,function(panel,index){
@@ -12,21 +13,41 @@ export default class FilterContainer extends Component{
         });
         return catList;
     }
+
     constructor(props,context){
         super(props,context);
         this.state={
             catList:this.initCat(),
-            activeCat:-1
+            activeCat:props.activeIndex
         };
     }
+
     static propTypes= {
         /**
          * 用户选择了某一项item之后触发的回调函数
-         * @property onChange
+         * @method onChange
          * @type Function
          * */
-        onChange:PropTypes.func
+        onChange:PropTypes.func,
+        /**
+         * 默认展开筛选的索引，默认－1，即都不展开
+         * @property activeIndex
+         * @type Number
+         * */
+        activeIndex: PropTypes.number,
+        /**
+         * 是否隐藏头部
+         * @property hideCat
+         * @type Boolean
+         * */
+        hideCat: PropTypes.bool
     };
+
+    static defaultProps = {
+        activeIndex: -1,
+        choose: ""
+    };
+
     categoryChange(index,category){
         var catList=this.state.catList.slice();
         catList[index]=category;
@@ -36,6 +57,7 @@ export default class FilterContainer extends Component{
         });
         this.props.onChange&&this.props.onChange(category.key);
     }
+
     activeCat(index){
         //展开某一个cat
         if(index==this.state.activeCat){
@@ -45,6 +67,7 @@ export default class FilterContainer extends Component{
             activeCat:index
         });
     }
+
     renderPanelList(){
         let self=this,
             {catList,activeCat}=self.state;
@@ -57,10 +80,13 @@ export default class FilterContainer extends Component{
                 categoryChange:self.categoryChange.bind(self),
                 selected:catList[index],
                 panelIndex:index,
-                show:show
+                show:show,
+                choose:self.props.choose,
+                getChooseData: self.props.getChooseData
             })
         });
     }
+
     renderCatList(){
         if(this.props.hideCat){
             return null;
@@ -85,16 +111,19 @@ export default class FilterContainer extends Component{
             )
         });
     }
+
     render(){
         let panelList= this.renderPanelList(),
             catList=this.renderCatList();
 
-        return(<div className='filter-container'>
-            <div className="cat" >
-                {catList}
+        return(
+            <div className='filter-container'>
+                <div className="cat" >
+                    {catList}
+                </div>
+                {panelList}
             </div>
-            {panelList}
-        </div>)
+        );
     }
 }
 //如果设置了hideCat并且只有一个panel，则该panel一直会显示

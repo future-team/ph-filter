@@ -22,23 +22,14 @@ var getEntry =function() {
 };
 
 module.exports =extend({}, {
-    //entry:baseFileDir+'src/index.js',
-    devtool:'eval',
-    entry:[
-        'webpack-dev-server/client?http://localhost:8081',
-        'webpack/hot/only-dev-server',
-        './example/src/index.js'
-    ],
-    output:{
-        path:path.join(process.cwd(),'dist'),
-        filename:config.name+'.js'
+    entry: [path.join(process.cwd(), 'example/src/index.js')],
+    output: {
+        libraryTarget: 'umd',
+        path: path.join(process.cwd(), 'example/dist'),
+        filename: 'examples.js'
     },
     module:{
-        loaders:[/*
-         {
-         test: /date-time\.js$/,
-         loaders: ['muiLocal', 'babel']
-         },*/
+        loaders:[
             {
                 test: /\.jsx?$/,
                 loaders: ['react-hot', 'babel'],
@@ -50,7 +41,7 @@ module.exports =extend({}, {
             },
             {
                 test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-                loader : 'file-loader'
+                loader : 'url-loader'
             },
             { 
                 test: /\.html$/, 
@@ -63,27 +54,6 @@ module.exports =extend({}, {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.optimize.UglifyJsPlugin()
     ]
 });
-/*
- module:{
- module:{
- loaders:[
- {
- test: /\.js$/,
- loader: 'babel',
- exclude: /node_modules/
- },
- {
- test: /\.less$/,
- loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
- }
- ]
- }
- },
- plugins: [
- new ExtractTextPlugin(path.join('example.css'))
- ]
- */

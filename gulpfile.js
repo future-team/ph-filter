@@ -2,14 +2,14 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var webpack = require('webpack');
 var Server = require('karma').Server;
-var demoWebpackConfig = require('./webpack/demo.config');
 var webpackConfig = require('./webpack/webpack.config');
+var exampleConfig = require('./webpack/demo.config');
 var WebpackDevServer = require("webpack-dev-server");
 var open = require('gulp-open');
-
 var babel = require('gulp-babel');
 
 var config = require('./package.json');
+var devPort = '8081';
 
 var error = function(e){
   console.error(e);
@@ -26,30 +26,64 @@ gulp.task('karma', function (done) {
 });
 
 gulp.task('open', function () {
-  gulp.src(__filename)
-      .pipe(open({uri: "http://127.0.0.1:8081/webpack-dev-server/example/index.html"}));
+    gulp.src(__filename)
+        .pipe(open({uri: 'http://127.0.0.1:' + devPort + '/example/index.html'}));
 });
 
-gulp.task('demo-webpack', function(done) {
+gulp.task('demoBuild', function (done) {
+    var wbpk = Object.create(exampleConfig);
+    wbpk.devtool = 'eval';
+    wbpk.entry = [
+        'webpack-dev-server/client?http://127.0.0.1:' + devPort,
+        'webpack/hot/only-dev-server',
+        './example/src/index.js'
+    ];
+    wbpk.plugins = [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
+    ];
+    wbpk.module.loaders = [
+        {
+            test: /date-time\.js$/,
+            loaders: ['babel']
+        },
+        {
+            test: /\.jsx?$/,
+            loaders: ['react-hot', 'babel'],
+            exclude: /node_modules/
+        },
+        {
+            test: /\.less$/,
+            loader: "style-loader!css-loader!less-loader"
+        },
+        {
+            test: /\.png$/,
+            loader: "url-loader",
+            query: {mimetype: "image/png"}
+        },
+        {
+            test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+            loader: 'url-loader?name=./iconfont/[name].[ext]'
+        }
+    ];
 
-  var compiler = webpack(demoWebpackConfig);
+    var compiler = webpack(wbpk);
 
-  var server = new WebpackDevServer(compiler, {
-    hot: true,
-    historyApiFallback: false,
-    /*proxy: {
-     "*": "http://localhost:9090"
-     },*/
-    filename: config.name+".js",
-    publicPath: "/dist/",
-    //headers: { "X-Custom-Header": "yes" },
-    stats: { colors: true }
-  });
-  server.listen(8081, "localhost", function() {});
-
+    new WebpackDevServer(compiler, {
+        publicPath: '/example/dist/',
+        hot: true,
+        historyApiFallback: true,
+        port: devPort,
+        stats: {
+            colors: true
+        }
+    }).listen(devPort, '127.0.0.1', function (err) {
+            if (err) throw new gutil.PluginError("webpack-dev-server", err);
+            gutil.log("[webpack-dev-server]", "http://127.0.0.1:" + devPort + "/webpack-dev-server/index.html");
+        });
 });
 
-gulp.task('require-webpack', function(done) {
+gulp.task('webpack', function(done) {
   webpack(webpackConfig).run(function(err, stats) {
     if(err) throw new gutil.PluginError("require-webpack", err);
     gutil.log("[webpack]", stats.toString({
@@ -57,6 +91,14 @@ gulp.task('require-webpack', function(done) {
     }));
     done();
   });
+});
+
+gulp.task('exampleWebpack', function (done) {
+    webpack(exampleConfig).run(function (err, stats) {
+        if (err) throw new gutil.PluginError("exampleWebpack", err);
+        gutil.log("[exampleWebpack]", stats.toString({}));
+        done();
+    });
 });
 
 gulp.task('min-webpack', function(done) {
@@ -86,7 +128,7 @@ gulp.task('watch', function () {
   gulp.watch(['./lib/**/*.*'], ['demo']);
 });
 
-gulp.task('default', ['babel','require-webpack'/*, 'html', 'asset'*/]);
+gulp.task('default', ['babel','webpack','exampleWebpack']);
 gulp.task('test',['karma']);
-gulp.task('demo', ['demo-webpack','open']);
+gulp.task('demo', ['demoBuild','open']);
 gulp.task('min',['min-webpack']);
