@@ -1,15 +1,10 @@
-require('../css/index.less');
-import FilterContainer from './components/FilterContainer.js';
-import Panel from "./components/FilterPanel.js";
-import PanelSimple from "./components/FilterPanelSimple.js";
-import Item from "./components/Item.js";
-import ItemGroup from "./components/ItemGroup.js";
-let Filter={
-    FilterContainer,
-    Panel,
-    PanelSimple,
-    Item,
-    ItemGroup
-};
-module.exports=Filter;
+import '../css/index.less';
+
+export FilterContainer from './components/FilterContainer.js';
+export Panel from "./components/FilterPanel.js";
+export PanelSimple from "./components/FilterPanelSimple.js";
+export Item from "./components/Item.js";
+export ItemGroup from "./components/ItemGroup.js";
+export FilterCheckbox from "./components/FilterCheckbox.js";
+export PanelCheckbox from './components/FilterPanelCheckbox.js';
 
