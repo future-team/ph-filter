@@ -593,7 +593,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: 'defaultProps',
 	        value: {
 	            activeIndex: -1,
-	            choose: ""
+	            choose: []
 	        },
 	        enumerable: true
 	    }]);
