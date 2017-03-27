@@ -1,9 +1,12 @@
-var config = require('package.json');
+var config = require('./package.json');
+var fs = require('fs');
+var description = fs.readFileSync('./doc.html');
 
 module.exports = {
     //扫描的文件路径
-    paths: ['lib/'],
-    demoDir:"example/",
+    paths: ['src/'],
+    demoDir:"example/src/",
+    demoUrl: 'http://future-team.github.io/ph-filter/example/index.html#/',
     //文档页面输出路径
     outdir: 'doc/',
     //内置主题
@@ -17,7 +20,7 @@ module.exports = {
         name: config.name,
 
         //项目描述，可以配置html，会生成到document主页
-        //description: '',
+        description: description,
 
         //版本信息
         version: config.version,
@@ -29,8 +32,9 @@ module.exports = {
         //导航信息
         navs: [{
             name: "主页",
-            url: ""
-        }]
+            url: "index.html"
+        }],
+        isApp: true
     },
     //demo页面需要加载的js库
     demo: {

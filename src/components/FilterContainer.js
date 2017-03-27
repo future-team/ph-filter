@@ -45,7 +45,7 @@ export default class FilterContainer extends Component{
 
     static defaultProps = {
         activeIndex: -1,
-        choose: ""
+        choose: []
     };
 
     categoryChange(index,category){
