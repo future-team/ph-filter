@@ -34,7 +34,7 @@ export default class FilterCheckbox extends Component{
     render(){
         return (
             <div className="ph-checkbox-filter">
-                <FilterContainer activeIndex={0} hideCat choose={this.choose} getChooseData={this.getChooseData.bind(this)}>
+                <FilterContainer activeIndex={0} hideCat choose={this.props.choose} getChooseData={this.getChooseData.bind(this)}>
                     <CheckboxPanel groupIndex={this.props.groupIndex}>
                         {this.props.children}
                     </CheckboxPanel>
