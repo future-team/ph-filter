@@ -129,6 +129,8 @@ View [example](/example/src/index.js) to get more details
 
 ## Repair
 
+`version 1.0.2` 增加choose的数据是通过请求获取的情况兼容 <br/>
+`version 1.0.1` 修复没有choose时数据多一个逗号的问题 <br/>
 `version 1.0.0` 新增FilterCheckbox拓展组件 <br/>
 
 

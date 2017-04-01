@@ -1,4 +1,5 @@
 import React, { Component ,PropTypes} from 'react';
+import {transToArray} from '../utils/tool.js';
 
 export default class FilterContainer extends Component{
     initCat(){
@@ -81,7 +82,7 @@ export default class FilterContainer extends Component{
                 selected:catList[index],
                 panelIndex:index,
                 show:show,
-                choose:self.props.choose,
+                choose:transToArray(self.props.choose),
                 getChooseData: self.props.getChooseData
             })
         });

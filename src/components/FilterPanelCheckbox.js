@@ -1,5 +1,6 @@
 import React, { Component ,PropTypes} from 'react';
 import Item from './Item.js';
+import {transToArray} from '../utils/tool.js';
 
 export default class FilterPanelCheckbox extends Component{
     
@@ -9,7 +10,7 @@ export default class FilterPanelCheckbox extends Component{
         super(props,context);
 
         this.init = 0;
-        this.choose = this.transToArray(props.choose);
+        this.choose = props.choose;
 
         this.state={
             activeGroupIndex: props.groupIndex,
@@ -19,21 +20,11 @@ export default class FilterPanelCheckbox extends Component{
         };
     }
 
-    transToArray(str){
-        if(typeof str == 'string'){
-            let  arr = [], newArr = [];
-
-            arr = str.split(',');
-            return arr;
-        }else{
-            return str;
-        }
-    }
-
     deleteFromArray(val){
-        let _index = this.choose.indexOf(val);
+        let {choose} = this.props;
+        let _index = choose.indexOf(val);
         if(_index>-1){
-            this.choose.splice(_index, 1);
+            choose.splice(_index, 1);
         }
     }
  
@@ -44,6 +35,7 @@ export default class FilterPanelCheckbox extends Component{
     }
 
     onAllItemChange(mainKey, itemKey, e){
+        let {choose} = this.props;
         let allChecked = this.state.allChecked, 
             itemChecked = this.state.itemChecked;
         
@@ -53,7 +45,7 @@ export default class FilterPanelCheckbox extends Component{
             itemChecked[mainKey][i] = e.target.checked;
 
             if(e.target.checked){ // 全选
-                if(this.choose.indexOf(i)==-1 && !this.state.itemDisabled[mainKey][i]) this.choose.push(i.toString());
+                if(choose.indexOf(i)==-1 && !this.state.itemDisabled[mainKey][i]) choose.push(i.toString());
             }else{ // 全不选
                 this.deleteFromArray(i);
             }
@@ -64,10 +56,11 @@ export default class FilterPanelCheckbox extends Component{
             itemChecked: itemChecked
         });
 
-        if(this.props.getChooseData) this.props.getChooseData(this.choose.join());
+        if(this.props.getChooseData) this.props.getChooseData(choose.join());
     }
 
     onItemChange(mainKey, itemKey, e){
+        let {choose} = this.props;
         let allChecked = this.state.allChecked, 
             itemChecked = this.state.itemChecked;
         
@@ -80,7 +73,7 @@ export default class FilterPanelCheckbox extends Component{
 
         if(e.target.checked){
             let count = true;
-            if(this.choose.indexOf(itemKey)==-1) this.choose.push(itemKey.toString())
+            if(choose.indexOf(itemKey)==-1) choose.push(itemKey.toString())
             for(let i in itemChecked[mainKey]){
                 if(!itemChecked[mainKey][i] && !this.state.itemDisabled[mainKey][i]){
                     count = false;
@@ -95,7 +88,7 @@ export default class FilterPanelCheckbox extends Component{
             itemChecked: itemChecked
         });
 
-        if(this.props.getChooseData) this.props.getChooseData(this.choose.join());
+        if(this.props.getChooseData) this.props.getChooseData(choose.join());
     }
 
     renderMainMenuList(){
@@ -114,6 +107,7 @@ export default class FilterPanelCheckbox extends Component{
     }
 
     renderSubMenuList(mainMenuList){
+        let {choose} = this.props;
         var mainMenu, self=this;
 
         mainMenu = React.Children.map(mainMenuList,function(menu){
@@ -127,8 +121,13 @@ export default class FilterPanelCheckbox extends Component{
                     
                     self.state.itemChecked[mainKey] = self.state.itemChecked[mainKey] || {};
                     self.state.itemDisabled[mainKey] = self.state.itemDisabled[mainKey] || {};
-                    if(self.state.itemChecked[mainKey][key]==undefined) self.state.itemChecked[mainKey][key] = self.choose.indexOf(key.toString())!=-1;
-                    if(self.state.itemDisabled[mainKey][key]==undefined) self.state.itemDisabled[mainKey][key] = disabled;
+
+                    if(self.state.itemChecked[mainKey][key]==undefined || self.choose != choose){ // 兼容通过请求获取choose的情况
+                        self.state.itemChecked[mainKey][key] = choose.indexOf(key.toString())!=-1;
+                    } 
+                    if(self.state.itemDisabled[mainKey][key]==undefined || self.choose != choose){
+                        self.state.itemDisabled[mainKey][key] = disabled;
+                    } 
                     
                     if(self.state.itemChecked[mainKey][key]) checkedCount++;
                     if(disabled){
@@ -152,7 +151,7 @@ export default class FilterPanelCheckbox extends Component{
                 });
                 
                 // new一个全部的elemecontext
-                if(self.state.allChecked[mainKey]==undefined){
+                if(self.state.allChecked[mainKey]==undefined || self.choose != choose){
                     if(checkedCount+disabledCount==sum) self.state.allChecked[mainKey] = true;
                     else self.state.allChecked[mainKey] = false;
                 }
@@ -166,7 +165,7 @@ export default class FilterPanelCheckbox extends Component{
 
         });
         self.init = 1;
-        // console.log(this.choose.join());
+        // console.log(this.props.choose.join());
         return mainMenu;
     }
 
