@@ -7,7 +7,7 @@
 		exports["PhFilter"] = factory(require("react"), require("phoenix-ui"));
 	else
 		root["PhFilter"] = factory(root["React"], root["Phoenix"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_8__, __WEBPACK_EXTERNAL_MODULE_14__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_8__, __WEBPACK_EXTERNAL_MODULE_15__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -76,37 +76,37 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.FilterContainer = _componentsFilterContainerJs2['default'];
 
-	var _componentsFilterPanelJs = __webpack_require__(9);
+	var _componentsFilterPanelJs = __webpack_require__(10);
 
 	var _componentsFilterPanelJs2 = _interopRequireDefault(_componentsFilterPanelJs);
 
 	exports.Panel = _componentsFilterPanelJs2['default'];
 
-	var _componentsFilterPanelSimpleJs = __webpack_require__(11);
+	var _componentsFilterPanelSimpleJs = __webpack_require__(12);
 
 	var _componentsFilterPanelSimpleJs2 = _interopRequireDefault(_componentsFilterPanelSimpleJs);
 
 	exports.PanelSimple = _componentsFilterPanelSimpleJs2['default'];
 
-	var _componentsItemJs = __webpack_require__(12);
+	var _componentsItemJs = __webpack_require__(13);
 
 	var _componentsItemJs2 = _interopRequireDefault(_componentsItemJs);
 
 	exports.Item = _componentsItemJs2['default'];
 
-	var _componentsItemGroupJs = __webpack_require__(15);
+	var _componentsItemGroupJs = __webpack_require__(16);
 
 	var _componentsItemGroupJs2 = _interopRequireDefault(_componentsItemGroupJs);
 
 	exports.ItemGroup = _componentsItemGroupJs2['default'];
 
-	var _componentsFilterCheckboxJs = __webpack_require__(16);
+	var _componentsFilterCheckboxJs = __webpack_require__(17);
 
 	var _componentsFilterCheckboxJs2 = _interopRequireDefault(_componentsFilterCheckboxJs);
 
 	exports.FilterCheckbox = _componentsFilterCheckboxJs2['default'];
 
-	var _componentsFilterPanelCheckboxJs = __webpack_require__(17);
+	var _componentsFilterPanelCheckboxJs = __webpack_require__(18);
 
 	var _componentsFilterPanelCheckboxJs2 = _interopRequireDefault(_componentsFilterPanelCheckboxJs);
 
@@ -453,6 +453,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _utilsToolJs = __webpack_require__(9);
+
 	var FilterContainer = (function (_Component) {
 	    _inherits(FilterContainer, _Component);
 
@@ -517,7 +519,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                selected: catList[index],
 	                panelIndex: index,
 	                show: show,
-	                choose: self.props.choose,
+	                choose: _utilsToolJs.transToArray(self.props.choose),
 	                getChooseData: self.props.getChooseData
 	            });
 	        });
@@ -612,6 +614,32 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 9 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	exports.__esModule = true;
+	var Tool = {
+	    transToArray: function transToArray(val) {
+	        switch (typeof val) {
+	            case 'string':
+	                var arr = [];
+	                arr = val.split(',');
+	                return arr;
+	                break;
+	            case 'number':
+	                return val.toString();
+	            default:
+	                return val;
+	        }
+	    }
+	};
+
+	exports['default'] = Tool;
+	module.exports = exports['default'];
+
+/***/ },
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -628,7 +656,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _FilterPanelBaseJs = __webpack_require__(10);
+	var _FilterPanelBaseJs = __webpack_require__(11);
 
 	var _FilterPanelBaseJs2 = _interopRequireDefault(_FilterPanelBaseJs);
 
@@ -710,7 +738,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -787,7 +815,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -804,7 +832,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _FilterPanelBaseJs = __webpack_require__(10);
+	var _FilterPanelBaseJs = __webpack_require__(11);
 
 	var _FilterPanelBaseJs2 = _interopRequireDefault(_FilterPanelBaseJs);
 
@@ -841,7 +869,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -860,11 +888,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(13);
+	var _classnames = __webpack_require__(14);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _phoenixUi = __webpack_require__(14);
+	var _phoenixUi = __webpack_require__(15);
 
 	var Item = (function (_Component) {
 	    _inherits(Item, _Component);
@@ -960,7 +988,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -1014,13 +1042,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_14__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_15__;
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1087,7 +1115,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1106,13 +1134,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _phoenixUi = __webpack_require__(14);
+	var _phoenixUi = __webpack_require__(15);
 
 	var _FilterContainerJs = __webpack_require__(7);
 
 	var _FilterContainerJs2 = _interopRequireDefault(_FilterContainerJs);
 
-	var _FilterPanelCheckboxJs = __webpack_require__(17);
+	var _FilterPanelCheckboxJs = __webpack_require__(18);
 
 	var _FilterPanelCheckboxJs2 = _interopRequireDefault(_FilterPanelCheckboxJs);
 
@@ -1142,7 +1170,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            { className: 'ph-checkbox-filter' },
 	            _react2['default'].createElement(
 	                _FilterContainerJs2['default'],
-	                { activeIndex: 0, hideCat: true, choose: this.choose, getChooseData: this.getChooseData.bind(this) },
+	                { activeIndex: 0, hideCat: true, choose: this.props.choose, getChooseData: this.getChooseData.bind(this) },
 	                _react2['default'].createElement(
 	                    _FilterPanelCheckboxJs2['default'],
 	                    { groupIndex: this.props.groupIndex },
@@ -1184,7 +1212,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1203,9 +1231,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ItemJs = __webpack_require__(12);
+	var _ItemJs = __webpack_require__(13);
 
 	var _ItemJs2 = _interopRequireDefault(_ItemJs);
+
+	var _utilsToolJs = __webpack_require__(9);
 
 	var FilterPanelCheckbox = (function (_Component) {
 	    _inherits(FilterPanelCheckbox, _Component);
@@ -1222,7 +1252,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _Component.call(this, props, context);
 
 	        this.init = 0;
-	        this.choose = this.transToArray(props.choose);
+	        this.choose = props.choose;
 
 	        this.state = {
 	            activeGroupIndex: props.groupIndex,
@@ -1232,22 +1262,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        };
 	    }
 
-	    FilterPanelCheckbox.prototype.transToArray = function transToArray(str) {
-	        if (typeof str == 'string') {
-	            var arr = [],
-	                newArr = [];
-
-	            arr = str.split(',');
-	            return arr;
-	        } else {
-	            return str;
-	        }
-	    };
-
 	    FilterPanelCheckbox.prototype.deleteFromArray = function deleteFromArray(val) {
-	        var _index = this.choose.indexOf(val);
+	        var choose = this.props.choose;
+
+	        var _index = choose.indexOf(val);
 	        if (_index > -1) {
-	            this.choose.splice(_index, 1);
+	            choose.splice(_index, 1);
 	        }
 	    };
 
@@ -1258,6 +1278,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterPanelCheckbox.prototype.onAllItemChange = function onAllItemChange(mainKey, itemKey, e) {
+	        var choose = this.props.choose;
+
 	        var allChecked = this.state.allChecked,
 	            itemChecked = this.state.itemChecked;
 
@@ -1268,7 +1290,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            if (e.target.checked) {
 	                // 全选
-	                if (this.choose.indexOf(i) == -1 && !this.state.itemDisabled[mainKey][i]) this.choose.push(i.toString());
+	                if (choose.indexOf(i) == -1 && !this.state.itemDisabled[mainKey][i]) choose.push(i.toString());
 	            } else {
 	                // 全不选
 	                this.deleteFromArray(i);
@@ -1280,10 +1302,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	            itemChecked: itemChecked
 	        });
 
-	        if (this.props.getChooseData) this.props.getChooseData(this.choose.join());
+	        if (this.props.getChooseData) this.props.getChooseData(choose.join());
 	    };
 
 	    FilterPanelCheckbox.prototype.onItemChange = function onItemChange(mainKey, itemKey, e) {
+	        var choose = this.props.choose;
+
 	        var allChecked = this.state.allChecked,
 	            itemChecked = this.state.itemChecked;
 
@@ -1297,7 +1321,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        if (e.target.checked) {
 	            var count = true;
-	            if (this.choose.indexOf(itemKey) == -1) this.choose.push(itemKey.toString());
+	            if (choose.indexOf(itemKey) == -1) choose.push(itemKey.toString());
 	            for (var i in itemChecked[mainKey]) {
 	                if (!itemChecked[mainKey][i] && !this.state.itemDisabled[mainKey][i]) {
 	                    count = false;
@@ -1312,7 +1336,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            itemChecked: itemChecked
 	        });
 
-	        if (this.props.getChooseData) this.props.getChooseData(this.choose.join());
+	        if (this.props.getChooseData) this.props.getChooseData(choose.join());
 	    };
 
 	    FilterPanelCheckbox.prototype.renderMainMenuList = function renderMainMenuList() {
@@ -1329,6 +1353,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    FilterPanelCheckbox.prototype.renderSubMenuList = function renderSubMenuList(mainMenuList) {
+	        var choose = this.props.choose;
+
 	        var mainMenu,
 	            self = this;
 
@@ -1348,8 +1374,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	                        self.state.itemChecked[mainKey] = self.state.itemChecked[mainKey] || {};
 	                        self.state.itemDisabled[mainKey] = self.state.itemDisabled[mainKey] || {};
-	                        if (self.state.itemChecked[mainKey][key] == undefined) self.state.itemChecked[mainKey][key] = self.choose.indexOf(key.toString()) != -1;
-	                        if (self.state.itemDisabled[mainKey][key] == undefined) self.state.itemDisabled[mainKey][key] = disabled;
+
+	                        if (self.state.itemChecked[mainKey][key] == undefined || self.choose != choose) {
+	                            // 兼容通过请求获取choose的情况
+	                            self.state.itemChecked[mainKey][key] = choose.indexOf(key.toString()) != -1;
+	                        }
+	                        if (self.state.itemDisabled[mainKey][key] == undefined || self.choose != choose) {
+	                            self.state.itemDisabled[mainKey][key] = disabled;
+	                        }
 
 	                        if (self.state.itemChecked[mainKey][key]) checkedCount++;
 	                        if (disabled) {
@@ -1373,7 +1405,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    });
 
 	                    // new一个全部的elemecontext
-	                    if (self.state.allChecked[mainKey] == undefined) {
+	                    if (self.state.allChecked[mainKey] == undefined || self.choose != choose) {
 	                        if (checkedCount + disabledCount == sum) self.state.allChecked[mainKey] = true;else self.state.allChecked[mainKey] = false;
 	                    }
 
@@ -1394,7 +1426,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        });
 	        self.init = 1;
-	        // console.log(this.choose.join());
+	        // console.log(this.props.choose.join());
 	        return mainMenu;
 	    };
 
