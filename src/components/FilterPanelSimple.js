@@ -8,13 +8,15 @@ export default class FilterPanelSimple extends PanelBase{
         var itemList=this.renderItemList(this.props.children);
         return(
             this.props.show?(
-                <div className={(this.props.className?this.props.className+' ':'')+"selector simple-selector"} >
-                    <div className="menu sub full" >
-                        <div >
-                            {itemList}
+                <div className="self-filter">
+                    <div className={(this.props.className?this.props.className+' ':'')+"selector simple-selector"} >
+                        <div className="menu sub full" >
+                            <div >
+                                {itemList}
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div> 
             ): null
 
         )

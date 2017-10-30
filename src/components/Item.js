@@ -66,7 +66,7 @@ export default class Item extends Component{
     render(){
         return (
             <div className={classnames('item'+(this.props.active?' on':''), this.props.disabled? 'ph-disabled':'')}
-                 onClick={::this.clickCallback}>
+                    onClick={::this.clickCallback}>
                 {this.renderChildren()}
             </div>
         )

@@ -52,15 +52,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(2);
 
 
-/***/ },
+/***/ }),
 /* 1 */,
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -112,9 +112,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.PanelCheckbox = _componentsFilterPanelCheckboxJs2['default'];
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
@@ -128,8 +128,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./index.less", function() {
-				var newContent = require("!!../node_modules/.npminstall/css-loader/0.17.0/css-loader/index.js!../node_modules/.npminstall/less-loader/2.2.3/less-loader/index.js!./index.less");
+			module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/less-loader/index.js!./index.less", function() {
+				var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/less-loader/index.js!./index.less");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -138,23 +138,23 @@ return /******/ (function(modules) { // webpackBootstrap
 		module.hot.dispose(function() { update(); });
 	}
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(5)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".filter-container {\n  position: relative;\n}\n.filter-container .cat {\n  padding: 0px;\n  background: #ffffff;\n}\n.filter-container .cat::after {\n  content: '';\n  display: table;\n  clear: both;\n}\n.filter-container .cat .item {\n  display: block;\n  background-repeat: repeat-y;\n  background-position: right 0;\n  background-size: 1px auto;\n  float: left;\n  text-align: center;\n  color: #646464;\n  font-size: 13px;\n  overflow: hidden;\n  height: 40px;\n  line-height: 40px;\n  position: relative;\n  text-decoration: none;\n  border-bottom: 1px solid #ededed;\n}\n.filter-container .cat .item::after {\n  content: '';\n  display: inline-block;\n  margin-left: 7px;\n  margin-bottom: 3px;\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n  width: 6px;\n  height: 6px;\n  border-bottom: 1px solid #666;\n  border-left: 1px solid #666;\n  -webkit-transform: rotate(-45deg);\n  -moz-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  -o-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n  -webkit-transition-duration: 300ms;\n  transition-duration: 300ms;\n}\n.filter-container .cat .item.active:after {\n  border-color: #ee5511;\n  -webkit-transform: rotate(135deg);\n  -moz-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  -o-transform: rotate(135deg);\n  transform: rotate(135deg);\n  margin-bottom: 0;\n}\n.filter-container .selector {\n  position: absolute;\n  z-index: 100;\n  color: #323232;\n  width: 100%;\n  height: 315px;\n  font-size: 15px;\n  overflow-y: hidden;\n  background-color: #fff;\n}\n.filter-container .selector .item {\n  display: block;\n  height: 40px;\n  line-height: 40px;\n  color: #323232;\n  overflow: hidden;\n  cursor: pointer;\n}\n.filter-container .selector.simple-selector {\n  height: inherit;\n  overflow-y: visible;\n}\n.filter-container .selector.simple-selector .menu {\n  height: inherit;\n  max-height: 315px;\n  background: #ffffff;\n}\n.filter-container .selector.simple-selector .menu.sub {\n  position: relative;\n}\n.filter-container .selector.simple-selector .menu .item {\n  border-bottom: 1px solid #eeeeff;\n}\n.filter-container .selector.simple-selector .menu .item:last-child {\n  border-bottom: none;\n}\n.filter-container .menu {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n  float: left;\n}\n.filter-container .menu.main {\n  width: 45%;\n  background: #f5f5f5;\n}\n.filter-container .menu.main .item {\n  padding-left: 15px;\n}\n.filter-container .menu.main .item.on {\n  background: #ffffff;\n}\n.filter-container .menu.sub {\n  position: absolute;\n  top: 0;\n  box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n  padding-left: 15px;\n  height: 315px;\n  overflow-y: scroll ;\n  -webkit-overflow-scrolling: touch;\n  left: 45%;\n  width: 55%;\n}\n.filter-container .menu.sub.full {\n  width: 100%;\n  left: 0px;\n}\n.filter-container .menu.sub .item.on {\n  color: #ee5511;\n  border-bottom: 1px solid #ee5511;\n}\n.ph-checkbox-filter .selector {\n  z-index: 9;\n  height: auto;\n}\n.ph-checkbox-filter .selector .menu {\n  min-height: 100vh;\n}\n.ph-checkbox-filter .selector .menu.main {\n  width: 35%;\n}\n.ph-checkbox-filter .selector .menu.sub {\n  left: 35%;\n  width: 65%;\n  padding-bottom: 25%;\n}\n.ph-checkbox-filter .selector .menu.sub .item {\n  border-bottom: 1px solid #e1e1e1;\n}\n.ph-checkbox-filter .selector .menu .item {\n  height: 44px;\n  line-height: 44px;\n  white-space: nowrap;\n  font-size: 15px;\n}\n.ph-checkbox-filter .selector .menu .item.ph-disabled {\n  color: #e2e2e2;\n  pointer-events: none;\n}\n.ph-checkbox-filter .selector .ph-multi-group {\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  width: 100%;\n  height: 100%;\n  margin-right: 0;\n}\n.ph-checkbox-filter .selector .ph-multi-group .ph-checkbox {\n  margin-right: 15px;\n}\n.ph-checkbox-filter .selector .ph-multi-group .ph-checkbox i {\n  margin-top: 3px;\n}\n.ph-checkbox-filter .selector .ph-multi-group input[type=\"checkbox\"]:checked + i:before {\n  width: 1px;\n  height: 4px;\n  left: 4px;\n  top: 7px;\n}\n.ph-checkbox-filter .selector .ph-multi-group input[type=\"checkbox\"]:checked + i:after {\n  width: 1px;\n  height: 8px;\n  left: 8px;\n  top: 4px;\n}\n.ph-checkbox-filter .selector .ph-multi-group .ph-checkbox,\n.ph-checkbox-filter .selector .ph-multi-group .ph-checkbox i {\n  width: 16px;\n  height: 16px;\n}\n.ph-checkbox-filter .selector .ph-multi-group span {\n  top: 0;\n}\n.ph-checkbox-filter .ph-submit-field {\n  position: absolute;\n  z-index: 10;\n  bottom: 0;\n  width: 100%;\n  background-color: #fff;\n  padding: 15px;\n}\n.ph-checkbox-filter .ph-submit-field .ph-button {\n  margin: 0;\n}\n", ""]);
+	exports.push([module.id, ".self-filter .filter-container {\n  position: relative;\n}\n.self-filter .filter-container .cat {\n  padding: 0px;\n  background: #ffffff;\n}\n.self-filter .filter-container .cat::after {\n  content: '';\n  display: table;\n  clear: both;\n}\n.self-filter .filter-container .cat .item {\n  display: block;\n  background-repeat: repeat-y;\n  background-position: right 0;\n  background-size: 1px auto;\n  float: left;\n  text-align: center;\n  color: #646464;\n  font-size: 13px;\n  overflow: hidden;\n  height: 40px;\n  line-height: 40px;\n  position: relative;\n  text-decoration: none;\n  border-bottom: 1px solid #ededed;\n}\n.self-filter .filter-container .cat .item::after {\n  content: '';\n  display: inline-block;\n  margin-left: 7px;\n  margin-bottom: 3px;\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n  width: 6px;\n  height: 6px;\n  border-bottom: 1px solid #666;\n  border-left: 1px solid #666;\n  -webkit-transform: rotate(-45deg);\n  -moz-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  -o-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n  -webkit-transition-duration: 300ms;\n  transition-duration: 300ms;\n}\n.self-filter .filter-container .cat .item.active:after {\n  border-color: #ee5511;\n  -webkit-transform: rotate(135deg);\n  -moz-transform: rotate(135deg);\n  -ms-transform: rotate(135deg);\n  -o-transform: rotate(135deg);\n  transform: rotate(135deg);\n  margin-bottom: 0;\n}\n.self-filter .filter-container .selector {\n  position: absolute;\n  z-index: 100;\n  color: #323232;\n  width: 100%;\n  height: 315px;\n  font-size: 15px;\n  overflow-y: hidden;\n  background-color: #fff;\n}\n.self-filter .filter-container .selector .item {\n  display: block;\n  height: 40px;\n  line-height: 40px;\n  color: #323232;\n  cursor: pointer;\n}\n.self-filter .filter-container .selector.simple-selector {\n  height: inherit;\n  overflow-y: visible;\n}\n.self-filter .filter-container .selector.simple-selector .menu {\n  height: inherit;\n  max-height: 315px;\n  background: #ffffff;\n}\n.self-filter .filter-container .selector.simple-selector .menu.sub {\n  position: relative;\n}\n.self-filter .filter-container .selector.simple-selector .menu .item {\n  border-bottom: 1px solid #eeeeff;\n}\n.self-filter .filter-container .selector.simple-selector .menu .item:last-child {\n  border-bottom: none;\n}\n.self-filter .filter-container .menu {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n  float: left;\n}\n.self-filter .filter-container .menu.main {\n  width: 45%;\n  background: #f5f5f5;\n}\n.self-filter .filter-container .menu.main .item {\n  padding-left: 15px;\n}\n.self-filter .filter-container .menu.main .item.on {\n  background: #ffffff;\n}\n.self-filter .filter-container .menu.sub {\n  position: absolute;\n  top: 0;\n  box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n  padding-left: 15px;\n  height: 315px;\n  overflow-y: scroll ;\n  -webkit-overflow-scrolling: touch;\n  left: 45%;\n  width: 55%;\n}\n.self-filter .filter-container .menu.sub.full {\n  width: 100%;\n  left: 0px;\n}\n.self-filter .filter-container .menu.sub .item.on {\n  color: #ee5511;\n  border-bottom: 1px solid #ee5511;\n}\n.self-filter .ph-checkbox-filter .selector {\n  z-index: 9;\n  height: auto;\n}\n.self-filter .ph-checkbox-filter .selector .menu {\n  min-height: 100vh;\n}\n.self-filter .ph-checkbox-filter .selector .menu.main {\n  width: 35%;\n  overflow-y: scroll;\n  height: calc(100vh - 70px);\n}\n.self-filter .ph-checkbox-filter .selector .menu.sub {\n  left: 35%;\n  width: 65%;\n  padding-bottom: 25%;\n}\n.self-filter .ph-checkbox-filter .selector .menu.sub .item {\n  border-bottom: 1px solid #e1e1e1;\n}\n.self-filter .ph-checkbox-filter .selector .menu .item {\n  height: 44px;\n  line-height: 44px;\n  white-space: nowrap;\n  font-size: 15px;\n}\n.self-filter .ph-checkbox-filter .selector .menu .item.ph-disabled {\n  color: #e2e2e2;\n  pointer-events: none;\n}\n.self-filter .ph-checkbox-filter .selector .ph-multi-group {\n  white-space: nowrap;\n  width: 100%;\n  height: 100%;\n  margin-right: 0;\n}\n.self-filter .ph-checkbox-filter .selector .ph-multi-group .ph-checkbox {\n  margin-right: 15px;\n}\n.self-filter .ph-checkbox-filter .selector .ph-multi-group .ph-checkbox i {\n  margin-top: 3px;\n}\n.self-filter .ph-checkbox-filter .selector .ph-multi-group input[type=\"checkbox\"]:checked + i:before {\n  width: 1px;\n  height: 4px;\n  left: 4px;\n  top: 7px;\n}\n.self-filter .ph-checkbox-filter .selector .ph-multi-group input[type=\"checkbox\"]:checked + i:after {\n  width: 1px;\n  height: 8px;\n  left: 8px;\n  top: 4px;\n}\n.self-filter .ph-checkbox-filter .selector .ph-multi-group .ph-checkbox,\n.self-filter .ph-checkbox-filter .selector .ph-multi-group .ph-checkbox i {\n  width: 16px;\n  height: 16px;\n}\n.self-filter .ph-checkbox-filter .selector .ph-multi-group span {\n  top: 0;\n}\n.self-filter .ph-checkbox-filter .ph-submit-field {\n  position: fixed;\n  z-index: 10;\n  bottom: 0;\n  width: 100%;\n  background-color: #fff;\n  padding: 15px;\n}\n.self-filter .ph-checkbox-filter .ph-submit-field .ph-button {\n  margin: 0;\n}\n", ""]);
 
 	// exports
 
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
@@ -208,9 +208,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 
-/***/ },
+/***/ }),
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	/*
 		MIT License http://www.opensource.org/licenses/mit-license.php
@@ -433,9 +433,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 
-/***/ },
+/***/ }),
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -558,13 +558,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'filter-container' },
+	            { className: 'self-filter' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'cat' },
-	                catList
-	            ),
-	            panelList
+	                { className: 'filter-container' },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'cat' },
+	                    catList
+	                ),
+	                panelList
+	            )
 	        );
 	    };
 
@@ -606,15 +610,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterContainer;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 8 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_8__;
 
-/***/ },
+/***/ }),
 /* 9 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -638,9 +642,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Tool;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 10 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -717,16 +721,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	            subMenuList = this.renderSubMenuList(mainMenuList);
 	        return this.props.show ? _react2['default'].createElement(
 	            'div',
-	            { className: (this.props.className ? this.props.className + ' ' : '') + "selector" },
+	            { className: 'self-filter' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'menu main' },
-	                mainMenuList
-	            ),
-	            _react2['default'].createElement(
-	                'div',
-	                { className: 'menu sub' },
-	                subMenuList
+	                { className: (this.props.className ? this.props.className + ' ' : '') + "selector" },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'menu main' },
+	                    mainMenuList
+	                ),
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'menu sub' },
+	                    subMenuList
+	                )
 	            )
 	        ) : null;
 	    };
@@ -737,9 +745,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterPanel;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 11 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -814,9 +822,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterPanelBase;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 12 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -849,14 +857,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var itemList = this.renderItemList(this.props.children);
 	        return this.props.show ? _react2['default'].createElement(
 	            'div',
-	            { className: (this.props.className ? this.props.className + ' ' : '') + "selector simple-selector" },
+	            { className: 'self-filter' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'menu sub full' },
+	                { className: (this.props.className ? this.props.className + ' ' : '') + "selector simple-selector" },
 	                _react2['default'].createElement(
 	                    'div',
-	                    null,
-	                    itemList
+	                    { className: 'menu sub full' },
+	                    _react2['default'].createElement(
+	                        'div',
+	                        null,
+	                        itemList
+	                    )
 	                )
 	            )
 	        ) : null;
@@ -868,9 +880,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterPanelSimple;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -987,9 +999,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Item;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 14 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	  Copyright (c) 2016 Jed Watson.
@@ -1041,15 +1053,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	}());
 
 
-/***/ },
+/***/ }),
 /* 15 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_15__;
 
-/***/ },
+/***/ }),
 /* 16 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -1114,9 +1126,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = Item;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 17 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -1167,23 +1179,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	    FilterCheckbox.prototype.render = function render() {
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'ph-checkbox-filter' },
-	            _react2['default'].createElement(
-	                _FilterContainerJs2['default'],
-	                { activeIndex: 0, hideCat: true, choose: this.props.choose, getChooseData: this.getChooseData.bind(this) },
-	                _react2['default'].createElement(
-	                    _FilterPanelCheckboxJs2['default'],
-	                    { groupIndex: this.props.groupIndex },
-	                    this.props.children
-	                )
-	            ),
+	            { className: 'self-filter' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'ph-submit-field' },
+	                { className: 'ph-checkbox-filter' },
 	                _react2['default'].createElement(
-	                    _phoenixUi.Button,
-	                    { block: true, onClick: this.onSubmitHandle.bind(this) },
-	                    this.props.buttonText
+	                    _FilterContainerJs2['default'],
+	                    { activeIndex: 0, hideCat: true, choose: this.props.choose, getChooseData: this.getChooseData.bind(this) },
+	                    _react2['default'].createElement(
+	                        _FilterPanelCheckboxJs2['default'],
+	                        { groupIndex: this.props.groupIndex },
+	                        this.props.children
+	                    )
+	                ),
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'ph-submit-field' },
+	                    _react2['default'].createElement(
+	                        _phoenixUi.Button,
+	                        { block: true, onClick: this.onSubmitHandle.bind(this) },
+	                        this.props.buttonText
+	                    )
 	                )
 	            )
 	        );
@@ -1211,9 +1227,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterCheckbox;
 	module.exports = exports['default'];
 
-/***/ },
+/***/ }),
 /* 18 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -1437,16 +1453,20 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement(
 	            'div',
-	            { className: (this.props.className ? this.props.className + ' ' : '') + "selector" },
+	            { className: 'self-filter' },
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'menu main' },
-	                mainMenuList
-	            ),
-	            _react2['default'].createElement(
-	                'div',
-	                { className: 'menu sub' },
-	                subMenuList
+	                { className: (this.props.className ? this.props.className + ' ' : '') + "selector" },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'menu main' },
+	                    mainMenuList
+	                ),
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'menu sub' },
+	                    subMenuList
+	                )
 	            )
 	        );
 	    };
@@ -1457,7 +1477,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports['default'] = FilterPanelCheckbox;
 	module.exports = exports['default'];
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;

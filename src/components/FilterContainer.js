@@ -118,12 +118,15 @@ export default class FilterContainer extends Component{
             catList=this.renderCatList();
 
         return(
-            <div className='filter-container'>
-                <div className="cat" >
-                    {catList}
+            <div className="self-filter">
+                <div className='filter-container'>
+                    <div className="cat" >
+                        {catList}
+                    </div>
+                    {panelList}
                 </div>
-                {panelList}
             </div>
+            
         );
     }
 }

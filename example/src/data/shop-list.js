@@ -10,7 +10,7 @@ const shopList = {
             "cityId":1,
             "cityName":"上海",
             "shopId":8067981,
-            "shopName":"金悦医疗美容",
+            "shopName":"金悦医疗美容金悦医疗美容金悦医疗美容",
             "status":0
           },
           {

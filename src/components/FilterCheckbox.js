@@ -33,14 +33,16 @@ export default class FilterCheckbox extends Component{
     
     render(){
         return (
-            <div className="ph-checkbox-filter">
-                <FilterContainer activeIndex={0} hideCat choose={this.props.choose} getChooseData={this.getChooseData.bind(this)}>
-                    <CheckboxPanel groupIndex={this.props.groupIndex}>
-                        {this.props.children}
-                    </CheckboxPanel>
-                </FilterContainer>
-                <div className="ph-submit-field">
-                    <Button block onClick={::this.onSubmitHandle}>{this.props.buttonText}</Button>
+            <div className="self-filter">
+                <div className="ph-checkbox-filter">
+                    <FilterContainer activeIndex={0} hideCat choose={this.props.choose} getChooseData={this.getChooseData.bind(this)}>
+                        <CheckboxPanel groupIndex={this.props.groupIndex}>
+                            {this.props.children}
+                        </CheckboxPanel>
+                    </FilterContainer>
+                    <div className="ph-submit-field">
+                        <Button block onClick={::this.onSubmitHandle}>{this.props.buttonText}</Button>
+                    </div>
                 </div>
             </div>
         );

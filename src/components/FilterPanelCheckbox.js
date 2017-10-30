@@ -175,12 +175,14 @@ export default class FilterPanelCheckbox extends Component{
             subMenuList = this.renderSubMenuList(mainMenuList);
 
         return(
-            <div className={(this.props.className?this.props.className+' ':'')+"selector"} >
-                <div className="menu main">
-                    {mainMenuList}
-                </div>
-                <div className="menu sub">
-                    {subMenuList}
+            <div className="self-filter">
+                <div className={(this.props.className?this.props.className+' ':'')+"selector"} >
+                    <div className="menu main">
+                        {mainMenuList}
+                    </div>
+                    <div className="menu sub">
+                        {subMenuList}
+                    </div>
                 </div>
             </div>
         )
